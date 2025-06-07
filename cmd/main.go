@@ -49,7 +49,7 @@ func main() {
 		TLSConfig: config,
 	}
 
-	err = srv.ListenAndServeTLS(srv.Server.Addr, "localhost.crt", "localhost.key", mux)
+	err = srv.ListenAndServe(srv.Server.Addr, srv.Server.Handler)
 	if err != nil {
 		panic(err)
 	}
